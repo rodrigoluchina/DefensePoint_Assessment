@@ -31,46 +31,49 @@ After deployment is complete, the outputs will provide the necessary information
 
 
 
-Security Recommendations
+###Security Recommendations
 For each service, consider the following security recommendations:
 
-S3 Bucket:
+#S3 Bucket:
 
-Enable server-side encryption (SSE) to encrypt data at rest.
-Implement bucket policies and access control lists (ACLs) to restrict access to the bucket.
-Enable versioning to retain multiple versions of objects for data protection.
-CloudFront:
+-Enable server-side encryption (SSE) to encrypt data at rest.
+-Implement bucket policies and access control lists (ACLs) to restrict access to the bucket.
+-Enable versioning to retain multiple versions of objects for data protection.
 
-Configure security headers (e.g., Content Security Policy, Strict-Transport-Security) to mitigate common web vulnerabilities.
-Use signed URLs or signed cookies for restricting access to content and preventing unauthorized downloads.
-Utilize AWS WAF to protect against common web exploits such as SQL injection, cross-site scripting (XSS), and known malicious bots.
+#CloudFront:
 
-API Gateway:
+-Configure security headers (e.g., Content Security Policy, Strict-Transport-Security) to mitigate common web vulnerabilities.
+-Use signed URLs or signed cookies for restricting access to content and preventing unauthorized downloads.
+-Utilize AWS WAF to protect against common web exploits such as SQL injection, cross-site scripting (XSS), and known malicious bots.
 
-Implement authentication and authorization mechanisms such as API keys, IAM roles, or OAuth tokens.
-Use HTTPS for secure communication between clients and the API Gateway.
-Enable request throttling and IP whitelisting to protect against denial-of-service (DoS) attacks.
-Integrate AWS WAF with API Gateway to filter and monitor HTTP/HTTPS requests, blocking malicious traffic before it reaches your API endpoints.
+#API Gateway:
 
-Lambda Function:
+-Implement authentication and authorization mechanisms such as API keys, IAM roles, or OAuth tokens.
+-Use HTTPS for secure communication between clients and the API Gateway.
+-Enable request throttling and IP whitelisting to protect against denial-of-service (DoS) attacks.
+-Integrate AWS WAF with API Gateway to filter and monitor HTTP/HTTPS requests, blocking malicious traffic before it reaches your API endpoints.
 
-Follow least privilege principle when assigning IAM roles to Lambda functions, granting only the necessary permissions.
-Enable AWS CloudTrail to log Lambda API calls for auditing and compliance purposes.
-Implement code signing to ensure the integrity and authenticity of Lambda deployment packages.
-Utilize AWS WAF to create rules that inspect the content of requests and responses to Lambda functions, protecting against known attack patterns and common vulnerabilities.
-Logging and Monitoring
+#Lambda Function:
+
+-Follow least privilege principle when assigning IAM roles to Lambda functions, granting only the necessary permissions.
+-Enable AWS CloudTrail to log Lambda API calls for auditing and compliance purposes.
+-Implement code signing to ensure the integrity and authenticity of Lambda deployment packages.
+-Utilize AWS WAF to create rules that inspect the content of requests and responses to Lambda functions, protecting against known attack patterns and common vulnerabilities.
+
+##Logging and Monitoring
+
 For logging and monitoring:
 
-CloudWatch Logs:
+#CloudWatch Logs:
 
-Configure Lambda function logging to capture logs and monitor function execution.
-Create CloudWatch Alarms to trigger notifications for specific Lambda function metrics (e.g., errors, duration).
-CloudTrail:
+-Configure Lambda function logging to capture logs and monitor function execution.
+-Create CloudWatch Alarms to trigger notifications for specific Lambda function metrics (e.g., errors, duration).
+-CloudTrail:Enable AWS CloudTrail to capture API activity across your AWS infrastructure, including API Gateway and Lambda function invocations.
 
-Enable AWS CloudTrail to capture API activity across your AWS infrastructure, including API Gateway and Lambda function invocations.
-Amazon CloudWatch Metrics:
+#Amazon CloudWatch Metrics:
 
-Monitor CloudFront distribution metrics such as requests, data transfer, and HTTP status codes to detect anomalies and performance issues.
-AWS X-Ray:
+-Monitor CloudFront distribution metrics such as requests, data transfer, and HTTP status codes to detect anomalies and performance issues.
 
-Use AWS X-Ray to trace and analyze requests as they travel through the API Gateway and Lambda function, identifying bottlenecks and optimizing performance.
+#AWS X-Ray:
+
+-Use AWS X-Ray to trace and analyze requests as they travel through the API Gateway and Lambda function, identifying bottlenecks and optimizing performance.
